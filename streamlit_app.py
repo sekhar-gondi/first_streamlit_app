@@ -22,7 +22,10 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.header("Fruityvice Fruit Advice!")
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+fruit_choice = streamlit.text_input('What fruit would you like information about?', 'kiwi') #asking user to input fruit name
+streamlit.write('The user entered', furit_choice) #displaying what user asked for
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + furit_choice) 
 #streamlit.text(fruityvice_response.json()) #just writes data to screen but not in proper format
 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) #this will normalize the json output
