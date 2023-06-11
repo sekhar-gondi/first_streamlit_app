@@ -28,4 +28,4 @@ streamlit.text(fruityvice_response.json()) #just writes data to screen but not i
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) #this will normalize the json output
 
 #now print the normalized json output
-streamlit.text(fruityvice_normalized)
+streamlit.dataframe(fruityvice_normalized) #dataframe shows in tabular format
