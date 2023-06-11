@@ -35,9 +35,6 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) #this 
 #now print the normalized json output
 streamlit.dataframe(fruityvice_normalized) #dataframe shows in tabular format
 
-add_my_fruit = streamlit.text_input('What Fruit would you like to add?')
-streamlit.write('Thanks for adding fruit', add_my_fruit)
-
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -49,3 +46,9 @@ streamlit.text("Hello from Snowflake:")
 streamlit.header("The Fruit Load List contains:")
 #streamlit.text(my_data_row)
 streamlit.dataframe(my_data_rows)
+
+add_my_fruit = streamlit.text_input('What Fruit would you like to add?')
+streamlit.write('Thanks for adding fruit', add_my_fruit)
+
+my_cur.execute("insert into fruit_load_list values('from streamlit')")
+
