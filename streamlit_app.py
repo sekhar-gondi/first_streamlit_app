@@ -37,7 +37,7 @@ try:
     #now print the normalized json output
     streamlit.dataframe(fruityvice_normalized) #dataframe shows in tabular format
  except URLError as e:
-  streamlit.error()
+   streamlit.error()
 
 streamlit.stop()
   
